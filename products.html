@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cookie" >
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylehome.css">
+    <link rel="stylesheet" href="styleproducts.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  
+    
+    <style>
+  
+   </style>
+  </head>
+  <body>
+  <!--NAVIGATION BAR-->
+  <div class="header">
+    <a href="index.html"><img src="images/Queenstar_Web_Logo_final-removebg-preview.png"></a>
+  </div>
+  <div class="topnav" id="myTopnav">
+    <!--<a href="index.php"><img src="images/logogerom.png"></a>-->
+    <a href="index.html" class="active" style="margin-left:50px;"> HOME</a>
+    <a href="aboutus.html">ABOUT US</a>
+    <div class="dropdown">
+      <button class="dropbtn"> OUR SERVICES
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="design.html"> Web & Systems Design</a>
+        <a href="networking.html">Networking</a>
+        <a href="maintenance.html">IT Systems Maintenance</a>
+        <a href="consultancy.html">ICT Consultancy</a>
+  
+      </div>
+    </div> 
+    <a href="products.html">PRODUCTS</a>
+    <a href="blog.html">BLOG</a>
+    <a href="corporatesustainability.html"> SUSTAINABILITY</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  
+  <script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+  
+  <!--BANNER-->
+  <!---slideshow-->
+  
+  <div class="slider">
+        <div class="slide active">
+          <img src="images/banner_image.jpg" alt="">
+          <div class="info">
+              <h2>Web & Systems Design </h2>
+            <p> Boost your business by widening your customer base, maintaining a competitive edge in the market, increasing 
+            business efficiency and maximizing Return on Investment (ROI) using websites and Systems.
+             </p>
+          
+          </div>
+        </div>
+        <div class="slide">
+       <!-- <img src="images/networking.jpg" alt="#" style="width:100%"> -->
+          <img src="images/nworking.jpg" alt="">
+          <div class="info">
+      <h2>Networking</h2>
+      <p> Networking Computers, CCTV Installation, Wi-Fi Installation & Setup, Networking IOT Devices such as home appliances, light fixtures, smart pacemakers, monitoring systems, surveillance robots, digital control systems, smart agriculture, infrastructure sensors etc.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="images/mtenance.jpg" alt="">
+          <div class="info">
+            <h2>ICT Maintenance</h2>
+            <p> Computer Deployment & Setup, Hardware & Software and Installation, Hardware & Software Upgrading, Malware Removal and Prevention, Data Backup and Recovery, Standard Routine Maintenance, etc. </p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="images/banner1.jpg" alt="">
+          <div class="info">
+              <h2>ICT Consultancy</h2>
+        <p> Cybersecurity (Information & Systems Security), ICT Risks & Mitigation Measures, Disaster Recovery Plan, Cloud Infrastructure Management, ICT Project Management, Communication & Network Infrastructure services, User Support and Maintenance Services etc. </p>
+          </div>
+        </div>
+        
+        <div class="navigation">
+          <i class="fas fa-chevron-left prev-btn"></i>
+          <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+      </div>
+  
+      <script type="text/javascript">
+          const slider = document.querySelector(".slider");
+          const nextBtn = document.querySelector(".next-btn");
+          const prevBtn = document.querySelector(".prev-btn");
+          const slides = document.querySelectorAll(".slide");
+          const slideIcons = document.querySelectorAll(".slide-icon");
+          const numberOfSlides = slides.length;
+          var slideNumber = 0;
+      
+          //image slider next button
+          nextBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber++;
+      
+            if(slideNumber > (numberOfSlides - 1)){
+              slideNumber = 0;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider previous button
+          prevBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber--;
+      
+            if(slideNumber < 0){
+              slideNumber = numberOfSlides - 1;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider autoplay
+          var playSlider;
+      
+          var repeater = () => {
+            playSlider = setInterval(function(){
+              slides.forEach((slide) => {
+                slide.classList.remove("active");
+              });
+              slideIcons.forEach((slideIcon) => {
+                slideIcon.classList.remove("active");
+              });
+      
+              slideNumber++;
+      
+              if(slideNumber > (numberOfSlides - 1)){
+                slideNumber = 0;
+              }
+      
+              slides[slideNumber].classList.add("active");
+              slideIcons[slideNumber].classList.add("active");
+            }, 6000);
+          }
+          repeater();
+      
+          //stop the image slider autoplay on mouseover
+          slider.addEventListener("mouseover", () => {
+            clearInterval(playSlider);
+          });
+      
+          //start the image slider autoplay again on mouseout
+          slider.addEventListener("mouseout", () => {
+            repeater();
+          });
+          </script>
+  <!---SOCIAL MEDIA-->  
+  <div class="socialmedia">
+    <a href="https://web.facebook.com/profile.php?id=100089096142530" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a> 
+    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
+    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a> 
+    <a href="#" class="youtube"><i class="fa fa-youtube"></i></a> 
+  </div>
+<!--PRODUCTS-->
+<!---MAINTENANCE SERVICES -->
+<p style="text-align: left;padding-left: 50px;"><a href="index.html" style="text-decoration: none; color:blue;">Home</a>/ Products</p>
+
+<!-- MAIN (Center website) -->
+<div class="main">
+    <h2>OUR PRODUCTS</h2>
+    <h4 style="text-align: center;"><a href="catalogue.html" style="text-decoration: none; color:blue;">See Our Catalogue</a></h4>
+    <div id="myBtnContainer">
+      <button class="btn active" onclick="filterSelection('all')"> SHOW ALL</button>
+      <button class="btn" onclick="filterSelection('laptops')"> LAPTOPS</button>
+      <button class="btn" onclick="filterSelection('desktops')"> DESKTOPS</button>
+      <button class="btn" onclick="filterSelection('monitors')"> MONITORS</button>
+      <button class="btn" onclick="filterSelection('completecomputers')"> COMPLETE COMPUTERS</button>
+      <button class="btn" onclick="filterSelection('allinone')"> ALL IN ONE COMPUTERS</button>
+      <button class="btn" onclick="filterSelection('psconsoles')"> PLAYSTATION CONSOLES</button> 
+      <button class="btn" onclick="filterSelection('printers')"> PRINTERS</button>
+      <button class="btn" onclick="filterSelection('software')"> SOFTWARE</button>
+    </div>
+    <!-- Portfolio Gallery Grid -->
+    <div class="row">
+        <!--laptops-->
+      <div class="column laptops">
+        <div class="content">
+          <img src="images/hpelitebook revolve.jpg" alt="#" style="width:100%">
+          <h4>HP EliteBook Revolve 810 </h4>
+          <p>Intel Core i5,  11.6" Touchscreen HD, 2.20 GHz CPU ,4 GB RAM, 256 GB SSD, Windows 10, 64-Bit,6th Gen.
+            <br><b> From 32,000/=</b>
+            </p>
+            <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+              <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+            </center>
+        </div>
+      </div>
+      <div class="column laptops">
+        <div class="content">
+            <img src="images/hp745.jpg" alt="#" style="width:100%">
+            <h4>Hp EliteBook 840</h4>
+          <p> Intel Core i5,  14" SLIM LED-backlit, 2.20 GHz CPU ,4 GB RAM, 256 GB SSD, Windows 10, 64-Bit,6th Gen.
+            <br><b>From 35,000</b>
+            </p>
+            <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+              <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+            </center>
+        </div>
+        
+      </div>
+      <div class="column laptops">
+        <div class="content">
+            <img src="images/hp elitebook folio.jpg" alt="#" style="width:100%">
+            <h4>HP EliteBook Folio 9480</h4>
+          <p> Core i5, 4GB RAM, 500GB HDD, 2.40GHz Processor, 14" Display, Windows 10, 64-Bit
+            <br><b>From 32,000</b>
+            </p>
+            <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+              <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+            </center>
+        </div>
+      </div>
+      <div class="column laptops">
+        <div class="content">
+            <img src="images/lenovothinkpad.jpg" alt="#" style="width:100%">
+            <h4>Lenovo ThinkPad Yoga </h4>
+            <p> Core i5, 8GB RAM, 256GB SSD, 2.40GHz Processor, 13.3" Display, Windows 10, 64-Bit, 6th Gen
+              <br><b>From 34,000</b>
+            </p>
+            <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+              <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+            </center>
+        </div>
+      </div>
+      <div class="column laptops">
+        <div class="content">
+            <img src="images/lenovothinkpad.jpg" alt="#" style="width:100%">
+            <h4>Lenovo ThinkPad Yoga</h4>
+          <p> 
+            Core i3, 4GB RAM, 128GB SSD, 2.40GHz Processor, 12.5" Display, Windows 10, 64-Bit, 6th Gen
+              <br><b>From 27,000</b>
+            </p>
+            <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+              <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+            </center>
+        </div>
+      </div>
+      
+      <div class="column laptops">
+        <div class="content">
+            <img src="images/dell latitude 11 3180.jpg" alt="#" style="width:100%">
+            <h4>Dell Latitude E5280  </h4>
+          <p>
+            Core i5, 4GB RAM, 128GB SSD, 2.40GHz Processor, 12.5" Display, Windows 10, 64-Bit, 7th Gen
+            <br><b>From 32,000</b>
+            </p>
+            <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+              <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+            </center>
+        </div>
+      </div>
+      
+    
+      <!---Complete desktop computers-->
+     
+      <div class="column desktops">
+        <div class="content">
+            <img src="images/HP Complete Desktop.jpg" alt="#" style="width:100%">
+            <h4>Complete HP Desktop </h4>
+          <p>
+            Corei3 2.8Ghz CPU, 500GB HDD, 4GB RAM,17” Monitor, mouse, keyboard,2  
+            power cables, 1 VGA cable, windows 10. 
+            <br><b>From 17,000/=</b>
+            </p>
+            <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+              <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+            </center>
+        </div>
+      </div>
+     
+      <div class="column desktops">
+        <div class="content">
+            <img src="images/Dell Complete Desktop.jpg" alt="#" style="width:100%">
+            <h4>Complete Dell Desktop</h4>
+          <p>
+            Corei5 2.8Ghz CPU, 500GB HDD, 4GB RAM,17” Monitor, mouse, 
+            keyboard,2  power cables, 1 VGA cable, windows 10.             
+            <b>From 22,000/=</b>
+            </p>
+            <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+              <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+            </center>
+        </div>
+      </div>
+      
+      <div class="column completecomputers">
+        <div class="content">
+            <img src="images/delloptplex1.jpg" alt="#" style="width:100%">
+            <h4>DELL OPTIPLEX 3060MT SYSTEM</h4>
+          <p>
+            Core i3, 3.2 GHz CPU, 1TB  HDD, 4GB RAM, Intel Graphics, 18.5" TFT Monitor, Keyboard, Mouse and Power cables.
+            <br><b>From 60,000/=</b>
+          </p>
+          <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+            <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+          </center>
+        </div>
+      </div>
+      <div class="column completecomputers">
+        <div class="content">
+            <img src="images/delloptplex1.jpg" alt="#" style="width:100%">
+            <h4>DELL OPTIPLEX 3080MT SYSTEM</h4>
+          <p>
+             Core i5, 3.2 GHz CPU, 1TB  HDD, 4GB RAM, Intel Graphics, 18.5" TFT Monitor, Keyboard, Mouse and Power cables. 
+            <br><b>From 75,000/=</b>
+          </p>
+          <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+            <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+          </center>
+        </div>
+      </div>
+      <div class="column completecomputers">
+        <div class="content">
+            <img src="images/hptower.jpg" alt="#" style="width:100%">
+            <h4>HP 290 G4 Micro Tower PC</h4>
+          <p>
+             Core i5, 3.2-3.8 GHz CPU, 1TB  HDD, 4GB RAM, Intel Graphics, 18.5" TFT Monitor, Keyboard, Mouse, P. cables. 
+            <br><b>From 75,000/=</b>
+          </p>
+          <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+            <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+          </center>
+        </div>
+      </div>
+  <!--All in ones-->
+  <div class="column allinone">
+    <div class="content">
+        <img src="images/allinone1.jpg" alt="#" style="width:100%">
+        <h4>HP All in One 27-dp0167</h4>
+      <p>
+         Core i7, 16GB RAM 1TB HDD, 1.3 GHz (base frequency),3.9 GHz (Turbo Boost), 4 cores, Intel Iris Plus Graphics
+        <br><b>From 145,000/=</b></p>
+        <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+          <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+        </center>
+    </div>
+  </div>     
+  <div class="column allinone">
+    <div class="content">
+        <img src="images/allinone2.jpg" alt="#" style="width:100%">
+        <h4>HP 200 G4 All-in-One PC</h4>
+      <p> 
+        Core i5,4GB RAM, 3.2-3.9 GHz CPU, 1TB HDD, 21.5” Monitor,Intel Graphics, ALL IN ONE  (AIO) Form factor.
+        <br><b>From 90,000/=</b>
+      </p>
+      <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+        <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+      </center>
+    </div>
+  </div>
+
+  <div class="column allinone">
+    <div class="content">
+        <img src="images/allinone2.jpg" alt="#" style="width:100%">
+        <h4>HP 200 G4 All-in-One PC </h4>
+      <p>
+        Core i3,4GB RAM, 3.2-3.9 GHz CPU, 1TB HDD, 21.5” Monitor,Intel Graphics, ALL IN ONE  (AIO) Form factor.
+        <br><b>From 75,000/=</b>
+      </p>
+      <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+        <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+      </center>
+    </div>
+  </div>
+<!--monitors-->
+      <div class="column monitors">
+        <div class="content">
+            <img src="images/monitorhp1.jpg" alt="#" style="width:100%">
+            <h4> LCD Monitors</h4>
+          <p>
+            LCD Monitor – TFT Active Matrix, 
+            17 inches diagonal size, 
+            VGA,models may vary, color may vary. <br>
+            <b>From 5,000/=</b>
+          </p> 
+          <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+            <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+          </center>
+        </div>
+      </div>
+      <div class="column monitors">
+        <div class="content">
+            <img src="images/monitorhp1.jpg" alt="#" style="width:100%">
+            <h4>HP Monitor</h4>
+           <P> 24”LED, Widescreen (16:10), VGA, HDMI, Color Support: 16.7 Million colors, high contrast ratio, DVI, VGA, 2 side USB ports.             
+            <br><b>From 10,500/=</b>
+          </p>
+          <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+            <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+          </center>
+        </div>
+      </div>
+      
+      <div class="column monitors">
+        <div class="content">
+            <img src="images/monitordell.jpg" alt="#" style="width:100%">
+            <h4>Dell Monitor</h4>
+            <p> 24”LED, Widescreen (16:10), Resolution: 1920 x 1200 at 60Hz, VGA, HDMI, Color Support: 16.7 Million colors.
+              <br><b>From 5,000/=</b>
+          </p>
+          <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+          <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+        </center>
+        </div>
+      </div>
+     
+<!--psconsoles-->
+      <div class="column psconsoles">
+        <div class="content">
+            <img src="images/ps5.jpg" alt="#" style="width:100%">
+            <h4>Sony PlayStation 5</h4>
+          <p>
+            812GB; Incredible games; Lighter and slimmer;
+            TV, Music etc.
+            <br><b>From 100,000/=</b> </b><br><br>
+          </p>
+          <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+            <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+          </center>
+        </div>
+      </div>
+      <div class="column psconsoles">
+        <div class="content">
+            <img src="images/ps4.jpg" alt="#" style="width:100%">
+            <h4>Sony PlayStation 4</h4>
+          <p>1TB HDD; Incredible games; Lighter and slimmer;
+            TV, Music etc.
+            <br><b>From 70,000/=</b><br><br>
+            </p>
+            <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+              <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+            </center>
+        </div>
+      </div>
+
+<!--printers-->
+
+      <div class="column printers">
+        <div class="content">
+            <img src="images/HP DeskJet 2710.jpg" alt="#" style="width:100%">
+            <h4>HP  DeskJet 2710</h4>
+          <p> 
+            All-in-One Printer (Print, scan and copy), Wireless Printing, Instant Ink 
+            <br><b>From 15,000/=</b><br><br>
+            </p>
+            <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+              <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+            </center>
+        </div>
+      </div>    
+      <div class="column printers">
+        <div class="content">
+            <img src="images/epsonl850.jpg" alt="#" style="width:100%">
+            <h4>EPSON L850 All in One Printer</h4>
+          <p>
+            Print Scan & Copy, On-demand inkjet; high Copy Speed,  color LCD screen; 
+            Direct printing via USB port, CD/DVD printing.
+            <br><b>From 65,000/= </b>
+          </p>
+          <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+            <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+          </center>
+        </div>
+      </div>
+      <div class="column printers">
+        <div class="content">
+            <img src="images/epsonL3111.jpg" alt="#" style="width:100%">
+            <h4>Epson EcoTank L3111 All in One Printer</h4>
+          <p> 
+            Print Scan Copy, USB Connectivity, print 13 (black) and 10 (colour)Pages per minute	            
+            <br><b>From 42,000/= </b><br></b>
+          </p>
+          <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+            <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+          </center>
+        </div>
+      </div>
+    
+      <div class="column printers">
+        <div class="content">
+            <img src="images/epson ecotant L6550.jpg" alt="#" style="width:100%">
+            <h4>Epson EcoTank L6570</h4>
+          <p> 
+            Print Scan Copy; Duplex, Wi-Fi,Economical, print 25(b) & 32(c) Pages per minute, USB Connectivity            
+            <br><b>From 153/000/= </b><br><br>
+          </p>
+          <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+            <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+          </center>
+        </div>
+      </div>
+     
+      <div class="column printers">
+        <div class="content">
+            <img src="images/epsonL1300.jpg" alt="#" style="width:100%">
+            <h4>Epson L1300 A3 Ink Tank Printer</h4>
+          <p> 
+            Print Scan Copy, A3 printing, economical, Print speed up to 15ipm, Print resolution up to 5760 x 1440 dpi, USB Connectivity 
+            <br><b>From 104,000/= </b>
+          </p>
+          <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+            <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+          </center>
+        </div>
+      </div>
+
+      <div class="column printers">
+        <div class="content">
+            <img src="images/HP Laserjet 107W.jpg" alt="#" style="width:100%">
+            <h4>HP Laserjet 107W printer</h4>
+          <p>  
+            A4 monolaser, Print only, USB, Wi-Fi, Manual Double Sided Printing, Up to 21ppm Mono Print, 150 Sheet Input Tray
+            
+            <br><b>From 41,000/= </b>
+          </p><br>
+          <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+            <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+          </center>
+        </div>
+      </div>
+      
+
+    <!--SOFTWARE -->
+    <div class="column software">
+      <div class="content">
+          <img src="images/windows10professional.jpg" alt="#" style="width:100%">
+          <h4>Windows 10 Professional OEM DVD</h4>
+        <p>  
+          Installation DVD, Activation Key with lifetime license for one user and Instructions Manual.
+          
+          <br><b>From 9,500/= </b>
+        </p><br>
+        <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+          <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+        </center>
+      </div>
+    </div>
+    <div class="column software">
+      <div class="content">
+          <img src="images/office2019professionalplus.jpg" alt="#" style="width:100%">
+          <h4>Microsoft Office Professional Plus 2019</h4>
+        <p>  Full Version, Lifetime License for 1 PC,
+          No subscriptions,license keys.
+          <br><b>From 22,000/= </b>
+        </p><br>
+        <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+          <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+        </center>
+      </div>
+    </div>
+
+    <div class="column software">
+      <div class="content">
+          <img src="images/antivirus.jpg" alt="#" style="width:100%">
+          <h4>Kaspersky Internet Security (3+1)</h4>
+        <p> 
+          Includes antivirus, firewall & VPN, 4Device protection (3PC +1 free Device), 1 Year PC MacAndroid Activation Code.
+          
+          <br><b>From 2,500/= </b>
+        </p>
+        <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+          <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+        </center>
+      </div>
+    </div>
+
+    <div class="column software">
+      <div class="content">
+          <img src="images/antivirus.jpg" alt="#" style="width:100%">
+          <h4>Kaspersky Antivirus (2+1)</h4>
+        <p> 
+          Includes antivirus, firewall & VPN, 3Device protection (2PC +1 free Device), 1 Year PC MacAndroid Activation Code.
+          
+          <br><b>From 2,000/= </b>
+        </p>
+        <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+          <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+        </center>
+      </div>
+    </div>
+    <div class="column software">
+      <div class="content">
+          <img src="images/antivirus.jpg" alt="#" style="width:100%">
+          <h4>Kaspersky Antivirus 2021 (1+1)</h4>
+        <p> Includes antivirus, firewall & VPN, 2Device protection (1PC +1 free Device), 1 Year PC MacAndroid Activation Code.
+          <br><b>From 1,500/= </b>
+        </p>
+        <center> <a href="https://wa.me/2540705608609?text=" target="_blank">
+          <img src="images/order.png" style="width: auto;" alt="#" style="width:8%"></a> 
+        </center>
+      </div>
+    </div>
+    
+    <!-- End of class row -->
+    </div>
+
+    <!-- END MAIN -->
+    </div>
+    
+    <script>
+    filterSelection("all")
+    function filterSelection(c) {
+      var x, i;
+      x = document.getElementsByClassName("column");
+      if (c == "all") c = "";
+      for (i = 0; i < x.length; i++) {
+        w3RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+      }
+    }
+    
+    function w3AddClass(element, name) {
+      var i, arr1, arr2;
+      arr1 = element.className.split(" ");
+      arr2 = name.split(" ");
+      for (i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+      }
+    }
+    
+    function w3RemoveClass(element, name) {
+      var i, arr1, arr2;
+      arr1 = element.className.split(" ");
+      arr2 = name.split(" ");
+      for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+          arr1.splice(arr1.indexOf(arr2[i]), 1);     
+        }
+      }
+      element.className = arr1.join(" ");
+    }
+    
+    
+    // Add active class to the current button (highlight it)
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function(){
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+    </script>
+
+
+<!--FOOTER-->
+<footer class="footer-distributed">
+  <div class="footer-left">
+  <center><img src="images/Queenstar_Web_Logo_final-removebg-preview.png"> </center>  <br>
+    <p class="footer-links">
+      <a href="index.php">Home</a>
+      |
+      <a href="ourservices.html">Our Portfolio</a>
+      |
+      <a href="privacypolicy.html">Privacy Policy</a>
+      |
+      <a href="contact.php">Contact Us</a>
+
+    </p>
+    <div class="office-hours">
+      <h4> Office Hours </h4>
+      <p>Monday-Saturday :  08.00 A.M. - 9.00 P.M.</p> 
+      <p> Sunday : 2.00 P.M. - 9.00 P.M.</p> 
+    </div>
+    <br>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa fa-map-marker"></i>
+        <p><span>Lesirko House,Kasuku,
+         First Floor</span>
+        </p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254729497356</p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254705608609</p>
+    </div>
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="#">queenstarcomputers@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span> Queenstar Computers Brief</span>
+      We offer a variety of services in the IT sector such as Web & Systems Design, Networking, ICT Systems Maintenance, Supply of ICT related products and ICT Consultancy</p>
+    <div class="footer-icons">
+      <a href="https://web.facebook.com/profile.php?id=100089096142530" target="_blank"><i class="fa fa-facebook"></i></a> 
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-youtube"></i></a>
+    </div>
+    <br><br>
+<!---Whatsapp chat-->
+<div style="text-align:center;">
+  <a href="https://wa.me/2540705608609?text=">
+    <img src="images/whatsapp-removebg-preview.png" alt="#" style="width:20%">
+  </a> 
+</div>
+
+  </div>
+  <hr>
+  <p class="footer-company-name">© 2023 Queenstar Computers. All Rights Reserved</p>
+</footer>
+
+<!----BACK TOP BUTTON-->
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back Top</button>
+
+<script>
+  // Get the button
+  let mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
+
+
+</body>
+</html>
